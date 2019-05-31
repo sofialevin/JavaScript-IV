@@ -34,10 +34,10 @@ class Instructor extends Person {
         this.catchPhrase = attr.catchPhrase;
     }
     demo(subject) {
-        return `Today we are learning about ${subject}.`;
+        console.log(`Today we are learning about ${subject}.`);
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${subject}.`;
+        console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
 }
 
@@ -60,13 +60,15 @@ class Student extends Person{
         this.favSubjects = attr.favSubjects;
     }
     listsSubjects() {
-        return this.favSubjects;
+        this.favSubjects.forEach(function(item) {
+          console.log(item);
+        });
     }
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${subject}.`;
+        console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
     sprintChallenge(subject) {
-        return `${this.name} has begun sprint challenge on ${subject}.`;
+        console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
 
@@ -86,10 +88,10 @@ class ProjectManagers extends Instructor {
         this.favInstructor = attr.favInstructor;
     }
     standUp(channel) {
-        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
+        console.log(`${this.name} announces to ${channel}, @channel standy times!​​​​​`);
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
     }
 }
 
@@ -120,10 +122,10 @@ const steve = new ProjectManagers({
 })
 
 
-console.log(dan.demo('Javascript'));
-console.log(dan.grade(sofia, 'Javascript'));
-console.log(sofia.listsSubjects());
-console.log(sofia.PRAssignment('Javascript'));
-console.log(sofia.sprintChallenge('Javascript'))
-console.log(steve.standUp('webPT7'));
-console.log(steve.debugsCode(sofia, 'Javascript'))
+dan.demo('Javascript');
+dan.grade(sofia, 'Javascript');
+sofia.listsSubjects();
+sofia.PRAssignment('Javascript');
+sofia.sprintChallenge('Javascript');
+steve.standUp('webPT7');
+steve.debugsCode(sofia, 'Javascript');
