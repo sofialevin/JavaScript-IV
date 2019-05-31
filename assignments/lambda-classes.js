@@ -39,6 +39,15 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+    setGrade(student) {
+        const operator1 = "+";
+        const operator2 = "-";
+        if (Math.floor(Math.random() * Math.floor(1)) < 1) {
+            student.grade = student.grade + (Math.floor(Math.random() * Math.floor(100)));
+        } else {
+            student.grade = student.grade - (Math.random() * Math.floor(100)));
+        }
+    } console.log(student.grade);
 }
 
 // Now we need some students!
@@ -58,6 +67,7 @@ class Student extends Person{
         this.previousBackground = attr.previousBackground;
         this.className = attr.className;
         this.favSubjects = attr.favSubjects;
+        this.grade = attr.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(function(item) {
@@ -110,7 +120,8 @@ const sofia = new Student({
     location: 'Oakland, CA',
     previousBackground: 'Customer Support',
     className: 'Javascript IV',
-    favSubjects: ['Html', 'CSS', 'JavaScript']
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 80
 })
 
 const steve = new ProjectManagers({
