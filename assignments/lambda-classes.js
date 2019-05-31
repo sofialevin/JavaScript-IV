@@ -12,7 +12,7 @@ class Person {
         this.location = attr.location
     }
     speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}.`
+        return `Hello my name is ${this.name}, I am from ${this.location}.`;
     }
 }
 
@@ -34,9 +34,38 @@ class Instructor extends Person {
         this.catchPhrase = attr.catchPhrase
     }
     demo(subject) {
-        return `Today we are learning about ${subject}.`
+        return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        return `${student} receives a perfect score on ${subject}.`
+        return `${student} receives a perfect score on ${subject}.`;
+    }
+}
+
+// Now we need some students!
+// Student uses the same attributes that have been set up by Person
+// Student has the following unique props:
+// previousBackground i.e. what the Student used to do before Lambda School
+// className i.e. CS132
+// favSubjects. i.e. an array of the student's favorite subjects ['Html', 'CSS', 'JavaScript']
+// Student has the following methods:
+// listsSubjects a method that logs out all of the student's favoriteSubjects one by one.
+// PRAssignment a method that receives a subject as an argument and logs out that the student.name has submitted a PR for {subject}
+// sprintChallenge similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
+
+class Student extends Person{
+    constructor(attr) {
+        super(attr);
+        this.previousBackground = attr.previousBackground,
+        this.className = attr.className,
+        this.favSubjects = attr.favSubjects,
+    }
+    listsSubjects() {
+        return this.favSubjects;
+    }
+    PRAssignment(subject) {
+        return `${name} has submitted a PR for ${subject}.`;
+    }
+    sprintChallenge(subject) {
+        return `${name} has begun sprint challenge on ${subject}.`;
     }
 }
