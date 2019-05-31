@@ -40,14 +40,13 @@ class Instructor extends Person {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
     setGrade(student) {
-        const operator1 = "+";
-        const operator2 = "-";
-        if (Math.floor(Math.random() * Math.floor(1)) < 1) {
-            student.grade = student.grade + (Math.floor(Math.random() * Math.floor(100)));
+        if (Math.random() < 0.5) {
+            student.grade = student.grade + (Math.floor(Math.random() * Math.floor(100 - student.grade)));
         } else {
-            student.grade = student.grade - (Math.random() * Math.floor(100)));
+            student.grade = student.grade - (Math.floor(Math.random() * Math.floor(student.grade)));
         }
-    } console.log(student.grade);
+        console.log(student.grade);
+    } 
 }
 
 // Now we need some students!
@@ -79,6 +78,13 @@ class Student extends Person{
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+    graduate() {
+        if (this.grade >= 70) {
+            console.log(`${this.name} graduates!`)
+        } else {
+            console.log(`${this.name} needs to study a little bit more.`)
+        }
     }
 }
 
@@ -140,3 +146,6 @@ sofia.PRAssignment('Javascript');
 sofia.sprintChallenge('Javascript');
 steve.standUp('webPT7');
 steve.debugsCode(sofia, 'Javascript');
+dan.setGrade(sofia);
+sofia.graduate();
+
