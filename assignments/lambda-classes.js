@@ -41,9 +41,9 @@ class Instructor extends Person {
     }
     setGrade(student) {
         if (Math.random() < 0.5) {
-            student.grade = student.grade + (Math.floor(Math.random() * Math.floor(100 - student.grade)));
+            student.grade = student.grade + (Math.floor(Math.random() * Math.floor(5)));
         } else {
-            student.grade = student.grade - (Math.floor(Math.random() * Math.floor(student.grade)));
+            student.grade = student.grade - (Math.floor(Math.random() * Math.floor(5)));
         }
         console.log(student.grade);
     } 
