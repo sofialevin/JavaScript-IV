@@ -7,9 +7,9 @@
 
 class Person {
     constructor(attr) {
-        this.name = attr.name,
-        this.age = attr.age,
-        this.location = attr.location
+        this.name = attr.name;
+        this.age = attr.age;
+        this.location = attr.location;
     }
     speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}.`;
@@ -29,15 +29,15 @@ class Person {
 class Instructor extends Person {
     constructor(attr) {
         super(attr);
-        this.specialty = attr.specialty,
-        this.favLanguage = attr.favLanguage,
-        this.catchPhrase = attr.catchPhrase
+        this.specialty = attr.specialty;
+        this.favLanguage = attr.favLanguage;
+        this.catchPhrase = attr.catchPhrase;
     }
     demo(subject) {
         return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        return `${student} receives a perfect score on ${subject}.`;
+        return `${student.name} receives a perfect score on ${subject}.`;
     }
 }
 
@@ -55,9 +55,9 @@ class Instructor extends Person {
 class Student extends Person{
     constructor(attr) {
         super(attr);
-        this.previousBackground = attr.previousBackground,
-        this.className = attr.className,
-        this.favSubjects = attr.favSubjects,
+        this.previousBackground = attr.previousBackground;
+        this.className = attr.className;
+        this.favSubjects = attr.favSubjects;
     }
     listsSubjects() {
         return this.favSubjects;
@@ -82,13 +82,48 @@ class Student extends Person{
 class ProjectManagers extends Instructor {
     constructor(attr) {
         super(attr);
-        this.gradClassName = attr.gradClassName,
-        this.favInstructor = attr.favInstructor,
+        this.gradClassName = attr.gradClassName;
+        this.favInstructor = attr.favInstructor;
     }
     standUp(channel) {
-        `${this.name} announces to ${channel}, @channel standy times!​​​​​`
+        return `${this.name} announces to ${channel}, @channel standy times!​​​​​`;
     }
     debugsCode(student, subject) {
-        `${this.name} debugs ${student.name}'s code on ${subject}.`
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
     }
 }
+
+const dan = new Instructor({
+    name: 'Dan',
+    age:  '35',
+    location: 'Colorado',
+    specialty: 'React',
+    favLanguage: 'Javascript',
+    catchPhrase: 'The cult of functionality.'
+  })
+
+const sofia = new Student({
+    name: 'Sofia',
+    age: 32,
+    location: 'Oakland, CA',
+    previousBackground: 'Customer Support',
+    className: 'Javascript IV',
+    favSubjects: ['Html', 'CSS', 'JavaScript']
+})
+
+const steve = new ProjectManagers({
+    name: 'Steve',
+    age: 34,
+    location: 'Texas',
+    gradClassName: 'Web5',
+    favInstructor: 'Dan'
+})
+
+
+console.log(dan.demo('Javascript'));
+console.log(dan.grade(sofia, 'Javascript'));
+console.log(sofia.listsSubjects());
+console.log(sofia.PRAssignment('Javascript'));
+console.log(sofia.sprintChallenge('Javascript'))
+console.log(steve.standUp('webPT7'));
+console.log(steve.debugsCode(sofia, 'Javascript'))
